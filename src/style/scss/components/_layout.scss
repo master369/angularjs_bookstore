@@ -1,0 +1,23 @@
+
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+    height: 100%;
+    // overflow-x: hidden;
+}
+
+.layout {
+    min-height: 100%;
+    height: auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .uui-main-container {
+        transition: padding-left 160ms ease-out;
+        &.aside-open {
+            padding-left: $sidebar-width + 10px;
+        }
+    }
+}

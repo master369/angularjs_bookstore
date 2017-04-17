@@ -1,0 +1,67 @@
+.uui-login-panel {
+    max-width: none;
+}
+
+.control {
+    &-required {
+        &:before {
+            content: '\002A';
+            color: #f55;
+            margin-right: 4px;
+        }
+    }
+}
+
+.control-small {
+    width: $control_small_size;
+    min-width: $control_small_size;
+}
+
+.form-horizontal {
+    .form-group {
+        margin-left: 0;
+    }
+}
+
+.control-label {
+    padding-top: 3px;
+}
+
+.form-link {
+    line-height: 34px;
+    text-decoration: underline;
+}
+
+.uui-form-element {
+    &-wide {
+        width: 100%;
+    }
+    &.ng-invalid {
+        // border-color: $fuchsia;
+    }
+}
+
+.col-form-label {
+    padding-top: $padding_col_form_label;
+    padding-bottom: $padding_col_form_label;
+    margin-bottom: 0;
+}
+
+// Override
+.uui-input-group.input-error input[type=text].uui-form-element-wide+.error-notification {
+    width: 100%;
+}
+
+// radio
+.uui-radio-content {
+    margin: $margin;
+    &>.radio-content {
+        padding-left: $padding_huge;
+        margin: $margin;
+    }
+    .radio-label {
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-left: $padding_large;
+    }
+}

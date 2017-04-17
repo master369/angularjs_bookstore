@@ -1,0 +1,27 @@
+[
+	{
+		"id": 0,
+		"name": "Joppa",
+		"region": 0
+	},
+	{
+		"id": 1,
+		"name": "Marion",
+		"region": 0
+	},
+	{
+		"id": 2,
+		"name": "Richville",
+		"region": 0
+	},
+	{
+		"id": 3,
+		"name": "Bancroft",
+		"region": 1
+	},
+	{
+		"id": 4,
+		"name": "Grapeview",
+		"region": 1
+	}
+]

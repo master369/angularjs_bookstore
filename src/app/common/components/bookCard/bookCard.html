@@ -1,0 +1,21 @@
+<div class="card">
+	<div class="card-content">
+		<a href ng-click="vm.stateGo('detail', {id: vm.item.id})">
+			<div class="card-cover">
+				<book-image class="card-img" alt="{{::vm.item.name}}" book-id="{{vm.item.id}}" size='sm'></book-image>
+				<span ng-if="vm.isNewBook()" class="badge-img">Новинка</span>
+			</div>
+			<span class="card-title text-ellipsis bold" ng-bind="::vm.item.name" title="{{::vm.item.name}}"></span>
+		</a>
+
+		<div>
+			<span class="card-author text-ellipsis" ng-bind="::vm.item.author" title="{{::vm.item.author}}"></span>
+		</div>
+		<div class="card-price">
+			<del class="bold" ng-if="vm.item.oldPrice" ng-bind="::vm.item.oldPrice | price"></del>
+			<span ng-class="{'raspberry': vm.item.oldPrice}" class="bold" ng-bind="::vm.item.price | price"></span>
+		</div>
+	</div>
+
+	<buy-button item="vm.item"></buy-button>
+</div>

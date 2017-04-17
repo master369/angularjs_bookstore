@@ -1,0 +1,6 @@
+<select id="{{vm.name}}" name="{{vm.name}}" class="col-xs-12 selectpicker uui-form-element" ng-model="vm.selectedItem" ng-change="vm.change()"
+	required ng-class="{'error': vm.isError()}">
+	<option value="" disabled hidden selected ng-bind="vm.placeholder"></option>
+	<option value="" disabled ng-if="vm.isEmpty()">Нет вариантов</option>
+	<option ng-repeat="option in vm.list" value="{{option.id}}" ng-bind="option[vm.property]"></option>
+	</select>

@@ -1,0 +1,10 @@
+<ul class="sidebar-menu" ng-repeat="category in vm.links track by $index">
+	<li class="header-sidebar-group">
+		<a href ng-click="vm.stateGo('catalog', {search: false})">
+			<span>{{category.header}}</span>
+		</a>
+	</li>
+	<li ng-repeat="link in category.data track by $index">
+		<a ui-sref-active="active" href ng-click="vm.goto(vm.route, category.type, link.id, $event)">{{link.name}}</a>
+	</li>
+</ul>

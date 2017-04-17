@@ -1,0 +1,17 @@
+﻿<div class="row">
+	<div class="col-xs-12">
+		<h2 class="test-class">Корзина</h2>
+
+		<cart edit-mode></cart>
+
+		<div class="row row-expand">
+			<div class="col-xs-12">
+				<button class="uui-button lime-green pull-left" ng-click="vm.stateGo('main')" type="submit">Назад</button>
+				<button class="uui-button raspberry pull-right" type="button" ng-click="vm.order()" ng-if="!vm.isEmpty()">
+					<span ng-if="!vm.continue">Оформить заказ <i class="fa fa-chevron-right"></i></span>
+					<span ng-if="vm.continue">Продолжить оформление заказа <i class="fa fa-chevron-right"></i></span>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

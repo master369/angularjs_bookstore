@@ -1,0 +1,120 @@
+﻿<!--header-->
+<header>
+	<div class="uui-header sidebar-header breadcrumb-header">
+		<nav>
+			<!--Responsive html-layout-->
+			<div class="uui-responsive-header">
+				<div class="responsive-header">
+					<div class="responsive-toggle-box toggle-aside" ng-class="{'toggle-aside-close': vm.isMenuExpanded}" ng-click="vm.toggleMenu()"
+						ng-if="vm.hasMenu"></div>
+
+				<a href ng-click="vm.stateGo('main')" class="responsive-brand-logo">
+					<span class="title">Book Store</span>
+				</a>
+				
+				<collapse>
+					<ul class="responsive-header-tools nav navbar-nav">
+						<li class="responsive-header-icon search-icon">
+							<a href="#" onclick="return false" class="collapse-switch">
+								<i class="glyphicon glyphicon-th-large"></i>
+							</a>
+							<ul class="collapse responsive-menu-custom button-links">
+								<span class="menu-arrow-responsive"></span>
+								<li class="search-box">
+									<i class="fa fa-search"></i>
+									<input class='search-string' placeholder="Enter text here" ng-model="vm.searchField" input-submit="vm.search($event, model)"
+										type="text" />
+								</li>
+								<li>
+									<a href ng-click="vm.stateGo('orders')">
+										<i class="fa fa-user"></i>
+										<span>Личный кабинет</span>
+									</a>
+								</li>
+								<li>
+									<a ui-sref="shell.search">
+										<i class="fa fa-search"></i>
+										<span>Расширенный поиск</span>
+									</a>
+								</li>
+								<li>
+									<a href ng-click="vm.stateGo(states.cart.data.stateName)">
+										<i class="fa fa-cart-arrow-down"></i>
+										<span>Корзина</span>
+										<span class="uui-label fuchsia" ng-bind="vm.cartCount()"></span>
+									</a>
+								</li>
+								<li>
+									<a href ng-click="vm.logout()" ng-if="vm.currentUser.logged">
+										<i class="fa fa-sign-out"></i>
+										<span>Выход</span>
+									</a>
+									<a href ng-click="vm.stateGo('login')" ng-if="!vm.currentUser.logged">
+										<i class="fa fa-sign-out"></i>
+										<span>Вход</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</collapse>
+			</div>
+	</div>
+	<!---->
+	<div class="uui-toggle-box toggle-aside" ng-class="{'toggle-aside-close': vm.isMenuExpanded}" ng-click="vm.toggleMenu()"
+		ng-if="vm.hasMenu"></div>
+		<a href ng-click="vm.stateGo('main')" class="brand-logo">
+			<span class="logo">
+				<img src="/images/ic_logo_UUi.svg" alt="Book Store" />
+			</span> Book Store
+		</a>
+		<breadcrumbs breadcrumbs="vm.breadcrumbs"></breadcrumbs>
+		<ul class="uui-header-tools nav navbar-nav">
+			<li class="uui-global-search">
+				<div class="search-field">
+					<label></label>
+					<input type="search" class="uui-search" placeholder="Search" ng-model="vm.searchField" input-submit="vm.search($event, model)"
+					/>
+				</div>
+			</li>
+			<li><a ui-sref="shell.catalog({search: true})" ui-sref-opts="{inherit: false}" class="text-underline"><span>Расширенный поиск</span></a></li>
+			<li class="dropdown uui-header-button">
+				<a href="#" class="dropdown-toggle uui-button" onclick="return false" data-toggle="dropdown" ng-bind="vm.currentUser.name"></a>
+				<div class="dropdown-menu" role="menu">
+					<span class="menu-arrow"></span>
+					<ul class="button-links">
+						<li ng-if="vm.currentUser.logged">
+							<a href ng-click="vm.stateGo('orders')">
+								<i class="fa fa-user"></i>
+								<span>Личный кабинет</span>
+							</a>
+						</li>
+						<li>
+							<a href ng-click="vm.stateGo('cart')">
+								<i class="fa fa-cart-arrow-down"></i>
+								<span>Корзина</span>
+								<span class="uui-label fuchsia" ng-bind="vm.cartCount()"></span>
+							</a>
+						</li>
+						<li>
+							<a href ng-click="vm.logout()" ng-if="vm.currentUser.logged">
+								<i class="fa fa-sign-out"></i>
+								<span>Выход</span>
+							</a>
+							<a href ng-click="vm.stateGo('login')" ng-if="!vm.currentUser.logged">
+								<i class="fa fa-sign-in"></i>
+								<span>Вход</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+		</nav>
+		</div>
+</header>
+<!--main-->
+<aside ui-view="aside" class="header-sidebar" ng-if="vm.isMenuExpanded && vm.hasMenu"></aside>
+<main class="uui-main-container container" ng-class="{'aside-open': vm.isMenuExpanded && vm.hasMenu}">
+	<div ui-view="content"></div>
+</main>

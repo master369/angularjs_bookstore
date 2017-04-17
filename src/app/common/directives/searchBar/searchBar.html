@@ -1,0 +1,78 @@
+<aside class="sidebar sidebar-form">
+	<form name="searchFilterForm" ng-submit="vm.search()">
+		<ul>
+			<li class="sidebar-header">
+				Параметры поиска
+			</li>
+			<li>
+				<label for="bookGenre">Жанр:</label>
+				<select class="selectpicker uui-form-element" name="genre" id="bookGenre" ng-model="vm.terms.genre">
+					<option value="" selected>Выберите жанр</option>
+					<option value='1'>Научная литература</option>
+					<option value='2'>Детская литература</option>
+					<option value='3'>Художественная литература</option>
+				</select>
+			</li>
+			<li class="divider"></li>
+			<li>
+				<label for="bookName">Наименование книги:</label>
+				<input type="text" name="name" id="bookName" ng-model="vm.terms.name" class="uui-form-element" placeholder="Введите наименование"/>
+			</li>
+			<li>
+				<label for="bookISBN">ISBN:</label>
+				<input type="text" name="ISBN" id="bookISBN" ng-model="vm.terms.ISBN" class="uui-form-element"  placeholder="Введите код с пробелами или без"/>
+			</li>
+			<li class="divider"></li>
+			<li>
+				<label for="bookAuthor">Автор:</label>
+				<input type="text" name="author" id="bookAuthor" ng-model="vm.terms.author" class="uui-form-element"  placeholder="Введите наименование"/>
+			</li>
+			<li>
+				<label for="bookPublisher">Издательство:</label>
+				<input type="text" name="publisher" id="bookPublisher" ng-model="vm.terms.publisher" class="uui-form-element"  placeholder="Введите текст"/>
+			</li>
+			<li class="divider"></li>
+			<li>
+				<label for="bookLang">Язык издания:</label>
+				<input type="text" name="language" id="bookLang" ng-model="vm.terms.language" class="uui-form-element" placeholder="Укажите язык"/>
+			</li>
+			<li class="divider"></li>
+			<li>
+				<label>Год издания:</label>
+
+				<div class="form-group row">
+					<label for="bookYearFrom" class="col-xs-2 col-form-label">с</label>
+					<div class="col-xs-10">
+						<input class="form-control uui-form-element" type="number" min="1800" max="2017" id="bookYearFrom" ng-model="vm.terms.createYearMin" name="createYearMin" placeholder="Введите год">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="bookYearTo" class="col-xs-2 col-form-label">по</label>
+					<div class="col-xs-10">
+						<input class="form-control uui-form-element" type="number" min="{{vm.terms.createYearMin || 1800}}" max="2017" id="bookYearTo" ng-model="vm.terms.createYearMax" name="createYearMax" placeholder="Введите год">
+					</div>
+				</div>
+			</li>
+			<li class="divider"></li>
+			<li>
+				<label>Цена:</label>
+
+				<div class="form-group row">
+					<div class="col-xs-10">
+						<input class="form-control uui-form-element" type="number" min="0" id="bookPriceFrom" ng-model="vm.terms.priceMin" name="priceMin" placeholder="от">
+					</div>
+					<label for="bookPriceFrom" class="col-xs-2 col-form-label input-addon input-addon-right">руб.</label>
+				</div>
+				<div class="form-group row">
+					<div class="col-xs-10">
+						<input class="form-control uui-form-element" type="number" min="{{vm.terms.priceMin || 0}}" id="bookPriceTo" ng-model="vm.terms.priceMax" name="priceMax" placeholder="до">
+					</div>
+					<label for="bookPriceTo" class="col-xs-2 col-form-label input-addon input-addon-right">руб.</label>
+				</div>
+			</li>
+			<li class="text-right">
+				<button class="uui-button blue">Найти</button>
+			</li>
+		</ul>
+	</form>
+</aside>

@@ -1,0 +1,13 @@
+<div class="modal-header modal-header-blue">
+    <h4 class="modal-title">{{vm.config.headerText}}</h4>
+    <button type="button" class="close modal-button-close" ng-click="vm.cancel()" data-dismiss="modal" aria-hidden="true">
+        <i class="fa fa-times fa-white" aria-hidden="true"></i>
+    </button>
+</div>
+<div class="modal-body">
+    {{vm.config.messageText}}
+</div>
+<div class="modal-footer">
+    <button type="button" class="uui-button blue" ng-click="vm.ok()">{{vm.config.btnActionText}}</button>
+    <button type="button" data-dismiss="modal" ng-click="vm.cancel()" class="uui-button transparent">Отмена</button>
+</div>

@@ -1,0 +1,4 @@
+<button ng-class="{'disable':!vm.isAvailable(), 'lime-green': vm.isInCart()}" class="uui-button blue" ng-disabled="!vm.isAvailable()"
+	ng-click="vm.addToCart()">
+	<span ng-bind="vm.title"></span>
+	</button>

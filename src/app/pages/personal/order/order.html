@@ -1,0 +1,31 @@
+﻿<div class="row row-expand">
+	<div class="col-xs-12">
+		<h2>Способ доставки</h2>
+
+		<div class="row row-expand">
+			<div class="col-xs-12 col-sm-4">
+				<span class="bold text-uppercase">Товары:</span>
+				<span ng-bind="vm.cart.price | price"></span>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<span class="bold text-uppercase">Доставка:</span>
+				<span class="note" ng-bind="vm.delivery.price | price"></span>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<span class="bold text-uppercase">Итого к оплате:</span>
+				<span ng-bind="vm.getTotalPrice() | price"></span>
+			</div>
+		</div>
+
+		<p class="raspberry">Внимание! Доставка осуществляется только по территории РФ</p>
+	</div>
+</div>
+
+<div ui-view="orders" class="ui-view-animate animate-move"></div>
+
+<div class="row row-expand">
+	<div class="col-xs-12">
+		<p class="uui-description-text foot-note">стоимость доставки рассчитывается исходя из итогового веса посылки и адреса доставки.</p>
+		<p class="uui-description-text">На странице отображается минимальная стоимость доставки для веса вашего заказа.</p>
+	</div>
+</div>

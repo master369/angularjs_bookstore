@@ -1,0 +1,18 @@
+.ui-view-animate {
+    &.ng-enter {
+        transition: .5s ease;
+        opacity: 0;
+    }
+    &.ng-enter-active {
+        opacity: 1;
+    }
+    &.animate-move {
+        &.ng-enter {
+            position: relative;
+            left: 500px;
+        }
+        &.ng-enter-active {
+            left: 0;
+        }
+    }
+}

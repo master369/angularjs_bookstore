@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-xs-12">
+		<h2>{{::vm.item.name}}</h2>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-4">
+		<!--<img class="detail-image" ng-src="{{vm.item.image}}" />-->
+		<book-image class="detail-image" alt="{{::vm.item.name}}" book-id="{{vm.item.id}}" size='bg'></book-image>
+	</div>
+	<div class="col-xs-12 col-md-8">
+		<div class="row">
+			<div class="col-xs-12 col-md-offset-6 col-md-6 detail-controls">
+				<label>Количество: <buy-count item="vm.item"></buy-count></label>
+				<div>
+					<span>Цена:</span>
+					<h3>{{vm.item.price | price}}</h3>
+				</div>
+
+				<buy-button item="vm.item"></buy-button>
+				<button class="uui-button lime-green" ng-class="{'disable':!vm.isAvailable()}" ng-disabled="!vm.isAvailable()" ng-click="vm.buyBook(vm.item)">Купить сейчас</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-6 col-md-offset-3 col-md-3">
+				<p><span>Название: </span></p>
+				<p><span>Автор: </span></p>
+				<p><span>Язык издания: </span></p>
+				<p><span>Год издания: </span></p>
+				<p><span>ISBN: </span></p>
+				<p><span>Издательство: </span></p>
+			</div>
+
+			<div class="col-xs-6 col-md-offset-1 col-md-5">
+				<p><span>{{::vm.item.name}}</span> </p>
+				<p><span>{{::vm.item.author}}</span> </p>
+				<p><span>{{::vm.item.language}}</span> </p>
+				<p><span>{{::vm.item.createYear | date: 'yyyy'}}</span> </p>
+				<p><span>{{::vm.item.ISBN}}</span></p>
+				<p><span>{{::vm.item.publisher}}</span> </p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<h3>О книге</h3>
+		<p>{{::vm.item.description}}</p>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+.slide {
+    position: relative;
+    left: 0;
+    opacity: 1;
+
+    &.ng-enter {
+        opacity: 0.1;
+        left: $item_shift;
+        transition: all 0.7s ease;
+    }
+
+    &.ng-enter-stagger {
+        transition-delay: $item_delay;
+        transition-duration: 0;
+    }
+
+    &.ng-enter.ng-enter-active {
+        left: 0;
+        opacity: 1;
+    }
+}

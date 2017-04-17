@@ -1,0 +1,113 @@
+﻿<div class="row">
+	<div class="col-xs-12">
+		<h2>Адреса доставки</h2>
+		<span class="raspberry">Внимание! Доставка осуществляется только по территории Российской Федерации!</span>
+
+		<div>
+			<ul class="adresses-list">
+				<li class="delivery-card" ng-repeat="adress in vm.addresses">
+					<div class="uui-input-group vertical">
+						<p class="uui-radio custom">
+							<input type="radio" name="radio01" ng-value="adress" ng-checked="{{vm.oldAdress === adress}}" id="radio-{{::adress.id}}"
+								ng-model="vm.oldAdress" />
+							<label for="radio-{{::adress.id}}">Доставить сюда</label>
+						</p>
+					</div>
+					<div>
+						<p>Адресс: {{::adress.region}}, город {{::adress.city}}, {{::adress.street}} улица, дом {{::adress.house}}, квартира {{::adress.appt}}
+						</p>
+						<p>Индекс: {{::adress.postNum}}</p>
+						<p>Получатель: {{::adress.addressee.name}} {{::adress.addressee.surname}}</p>
+						<p>Телефон: {{::adress.addressee.phone}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<div>
+			<h3>
+				<a href ng-click="vm.toggleNewAddress()">Новый адрес
+					<i ng-hide="vm.newAddressShow"class="fa fa-plus-circle"aria-hidden="true"></i>
+					<i ng-show="vm.newAddressShow"class="fa fa-minus-circle"aria-hidden="true"></i>
+				</a>
+			</h3>
+			<form name="addAddressForm" id="addAddressForm" method="POST" class="row" ng-show="vm.newAddressShow" novalidate>
+				<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+					<!--area-->
+					<div class="row form-group">
+						<label for="area" class="col-xs-3 col-form-label">Область/край</label>
+						<div class="col-xs-9">
+							<drop-down class="col-xs-12 col-md-6" name="region" list="vm.regiones" ng-model="vm.delivery.region" ng-change="vm.updateCities"
+								placeholder="Выберите область" property="name"></drop-down>
+						</div>
+					</div>
+					<!--city-->
+					<div class="form-group row">
+						<label for="city" class="col-xs-3 col-form-label">Город/Населенный пункт:</label>
+						<div class="col-xs-9">
+							<drop-down class="col-xs-12 col-md-6" name="city" list="vm.cities" ng-model="vm.delivery.city" ng-change="vm.updateLocations"
+								placeholder="Выберите город" property="name"></drop-down>
+						</div>
+					</div>
+					<!--street-->
+					<div class="form-group row">
+						<label for="street" class="col-xs-3 col-form-label">Улица</label>
+						<div class="col-xs-9">
+							<input required class="form-control uui-form-element"
+								type="text" value="" ng-model="vm.delivery.street" id="street" name="street" placeholder="Улица">
+						</div>
+					</div>
+
+					<!--appartmen-->
+					<div class="row">
+						<div class="form-group col-xs-4">
+							<label for="house">Дом</label>
+							<input class="form-control uui-form-element" required
+								type="text" value="" ng-model="vm.delivery.house" bn-home-number id="house" name="house" placeholder="дом">
+						</div>
+						<div class="form-group col-xs-4">
+							<label for="corpus">Корпус</label>
+							<input class="form-control uui-form-element" required
+								bn-number type="text" value="" ng-model="vm.delivery.corpus" id="corpus" name="corpus" placeholder="Корпус">
+						</div>
+						<div class="form-group col-xs-4">
+							<label for="appt">Квартира</label>
+							<input class="form-control uui-form-element" required
+								bn-number type="text" value="" ng-model="vm.delivery.appt" id="appt" name="appt" placeholder="Квартира">
+						</div>
+					</div>
+
+					<!--post index-->
+					<div class="form-group row">
+						<label for="postindex" class="col-xs-3 col-form-label">Почтовый индекс</label>
+						<div class="col-xs-9">
+							<input class="form-control uui-form-element" required
+								bn-number type="text" value="" ng-model="vm.delivery.postNum" id="postindex" name="postindex" placeholder="Почтовый индекс"
+								required>
+						</div>
+					</div>
+
+					<hr>
+
+					<h4>Получатель по новому адресу</h4>
+					<user-select user="vm.deliveryUser" user-mode="vm.userMode" second-user="vm.secondUser"></user-select>
+					<div class="row">
+						<div class="col-xs-12 text-right">
+							<button class="uui-button blue" type="submit" ng-click="vm.addNewAdress()" ng-show="vm.newAddressShow" trigger-validation="Заполните все поля">Добавить новый адрес</button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div class="row">
+				<div class="col-xs-6 text-left">
+					<button type="button" class="uui-button raspberry" ng-click="vm.prevStep()"><i class="fa fa-chevron-left"></i> Назад</button>
+				</div>
+				<div class="col-xs-6 text-right">
+					<button class="uui-button blue" type="button" ng-click="vm.submit()">Далее <i class="fa fa-chevron-right"></i></button>
+				</div>
+			</div>
+			<div>
+			</div>
+		</div>
+	</div>
+</div>

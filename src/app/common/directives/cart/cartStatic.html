@@ -1,0 +1,63 @@
+<div>
+	<table class="uui-table small">
+		<thead>
+			<tr>
+				<th class="col-xs-5">Название</th>
+				<th class="col-xs-1">Цена</th>
+				<th class="col-xs-1">Количество</th>
+				<th class="col-xs-1">Вес</th>
+				<th class="col-xs-1">Сумма</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-if="vm.cartIsEmpty()">
+				<td colspan="5" class="text-center">
+					<span class="bold">Корзина пуста</span>
+				</td>
+			</tr>
+			<tr ng-repeat="item in vm.items">
+				<td>
+					<div class="media">
+						<div class="media-left">
+							<a href ng-click="vm.stateGo('detail', {id: item.id})" title="{{::item.name}}">
+								<book-image class="media-object media-img" alt="{{::item.name}}" book-id="{{item.id}}" size='sm'></book-image>
+							</a>
+						</div>
+						<div class="media-body">
+							<a href ng-click="vm.stateGo('detail', {id: item.id})" title="{{::item.name}}">
+								<h5 class="media-heading" ng-bind="::item.name"></h5>
+							</a>
+							<span ng-bind="::item.author"></span>
+						</div>
+					</div>
+				</td>
+				<td>
+					<span ng-bind="::item.price | price"></span>
+				</td>
+				<td>
+					<span ng-bind="::item.buyCount | count"></span>
+				</td>
+				<td>
+					<span ng-bind="::item.weight | weight"></span>
+				</td>
+				<td>
+					<span ng-bind="vm.totalItemPrice(item) | price"></span>
+				</td>
+			</tr>
+			<tfoot>
+				<tr>
+					<th colspan="2">Итого по заказу:</th>
+					<th>
+						<span ng-bind="vm.totalCount() | count"></span>
+					</th>
+					<th>
+						<span ng-bind="vm.totalWeight() | weight"></span>
+					</th>
+					<th>
+						<span ng-bind="vm.totalPrice() | price"></span>
+					</th>
+				</tr>
+			</tfoot>
+		</tbody>
+	</table>
+</div>

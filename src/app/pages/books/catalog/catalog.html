@@ -1,0 +1,42 @@
+<div class='row'>
+    <div class="col-xs-12">
+        <h2 ng-if="!vm.isSearch">{{vm.header}}</h2>
+        <h2 ng-if="vm.isSearch">Результаты поиска</h2>
+        <span>Отображать по </span>
+        <select class="uui-form-element" ng-model="vm.currentSize" ng-change="vm.onSizeChange()" ng-options="size.value for size in vm.sizes"></select>
+        <span> элементов на странице</span>
+    </div>
+    <div class="col-xs-12" ng-class="{'col-md-9': vm.isSearch}">
+        <div class="uui-input-group horizontal ">
+            <label>Cортировать по цене:</label>
+            <p class="uui-radio">
+                <input type="radio" name="radio01" id="a1" value="asc" ng-model="vm.searchTerms.sortDir" ng-change='vm.sort()' />
+                <label for="a1">Сначала дорогие</label>
+            </p>
+            <p class="uui-radio">
+                <input type="radio" name="radio01" id="a2" value="desc" ng-model="vm.searchTerms.sortDir" ng-change='vm.sort()' />
+                <label for="a2">Сначала дешевые</label>
+            </p>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class='row'>
+            <search-bar ng-if="vm.isSearch" search-terms="vm.searchTerms" on-search="vm.search(searchTerms)" class="col-xs-12 col-md-3 col-md-push-9"></search-bar>
+            <div class="col-xs-12 catalog" ng-class="{'col-md-9 col-md-pull-3': vm.isSearch}">
+                <div class="well wide bg-blue" ng-if="!vm.data.length">
+                    <span class="text-uppercase bold">Ничего не найдено</span>
+                </div>
+                <ul class="list-inline flex-wrap" ng-if="vm.data.length">
+                    <li ng-repeat="item in vm.data">
+                        <book-card item="item"></book-card>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" ng-class="{'col-md-9': vm.isSearch}">
+                <paginator size="vm.pageSize" page="vm.searchTerms.page" search="vm.search(page, fromPagination)" page-count="vm.pagesCount"></paginator>
+            </div>
+        </div>
+    </div>
+</div>

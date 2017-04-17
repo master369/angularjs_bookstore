@@ -1,0 +1,102 @@
+[
+    {
+        "id": 0,
+        "city": 2,
+        "address": "331 Minna Street"
+    },
+    {
+        "id": 1,
+        "city": 4,
+        "address": "409 Hegeman Avenue"
+    },
+    {
+        "id": 2,
+        "city": 4,
+        "address": "364 Maujer Street"
+    },
+    {
+        "id": 3,
+        "city": 1,
+        "address": "764 Utica Avenue"
+    },
+    {
+        "id": 4,
+        "city": 0,
+        "address": "715 Sedgwick Place"
+    },
+    {
+        "id": 5,
+        "city": 2,
+        "address": "560 Varick Street"
+    },
+    {
+        "id": 6,
+        "city": 3,
+        "address": "695 Herkimer Court"
+    },
+    {
+        "id": 7,
+        "city": 0,
+        "address": "422 Dobbin Street"
+    },
+    {
+        "id": 8,
+        "city": 0,
+        "address": "615 Ivan Court"
+    },
+    {
+        "id": 9,
+        "city": 0,
+        "address": "692 Bowne Street"
+    },
+    {
+        "id": 10,
+        "city": 2,
+        "address": "625 Kaufman Place"
+    },
+    {
+        "id": 11,
+        "city": 1,
+        "address": "941 Middleton Street"
+    },
+    {
+        "id": 12,
+        "city": 3,
+        "address": "338 Suydam Place"
+    },
+    {
+        "id": 13,
+        "city": 3,
+        "address": "407 Noll Street"
+    },
+    {
+        "id": 14,
+        "city": 2,
+        "address": "192 Aurelia Court"
+    },
+    {
+        "id": 15,
+        "city": 1,
+        "address": "592 Randolph Street"
+    },
+    {
+        "id": 16,
+        "city": 1,
+        "address": "961 Cove Lane"
+    },
+    {
+        "id": 17,
+        "city": 2,
+        "address": "828 Belvidere Street"
+    },
+    {
+        "id": 18,
+        "city": 0,
+        "address": "631 Bryant Street"
+    },
+    {
+        "id": 19,
+        "city": 3,
+        "address": "883 Rogers Avenue"
+    }
+]

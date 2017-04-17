@@ -1,6 +1,9 @@
-packages
-/*.suo
-/WebSites/**/Web.Debug.config
-/WebSites/**/Web.config
-*.exe
-*.bin
+bower_components/
+coverage/
+testresults/
+node_modules/
+dist/
+e2e/
+.tmp/
+*.todo
+debug.log

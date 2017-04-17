@@ -1,0 +1,6 @@
+<ul class="uui-navigation breadcrumb-main-nav nav navbar-nav">
+	<li ng-repeat="crumb in vm.breadcrumbs" ng-class="{ active: $last, 'active-nav': $first }">
+		<a href ng-click="vm.stateGo(crumb.route)" ng-if="!$last">{{ crumb.name  }}</a>
+		<a href onclick="return false" ng-show="$last">{{ crumb.name }}</a>
+	</li>
+</ul>

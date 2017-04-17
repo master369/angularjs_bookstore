@@ -1,0 +1,44 @@
+.user-delivery-card{
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    border: 1px solid #464547;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+
+    &-item{
+    flex-direction: column;
+    }
+}
+.delivery-card{
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    border: 1px solid #464547;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+
+}
+.adresses-list{
+    list-style: none;  
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
+.uui-radio.custom input:checked+label:before{
+    border-color: #464547;
+}
+
+.uui-radio.custom input:checked+label:after{
+    background-color: #464547;
+}

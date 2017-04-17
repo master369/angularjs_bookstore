@@ -1,0 +1,16 @@
+.phone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    input {
+        text-align: center;
+    }
+    .phone-operator {
+        width: 60px;
+    }
+    .phone-number {
+        width: 100px;
+    }
+}

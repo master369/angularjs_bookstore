@@ -1,0 +1,13 @@
+html {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: $bg_gray;
+}
+
+.well {
+    &.wide {
+        width: 100%;
+    }
+}

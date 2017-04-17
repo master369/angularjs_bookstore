@@ -1,0 +1,7 @@
+<div class="phone">
+	<span class="phone-country" ng-bind="phone.country"></span>
+	<input id="phoneOperator" name="phoneOperator" type="text" class="form-control uui-form-element phone-operator" ng-class="{'error': !form.phoneOperator.$valid && form.$submitted}"
+		ng-model="phone.operator" bn-number maxlength="3" minlength="3" required>
+		<input id="phoneNumber" name="phoneNumber" type="text" class="form-control uui-form-element phone-number" ng-class="{'error': !form.phoneNumber.$valid && form.$submitted}"
+			ng-model="phone.number" bn-number maxlength="7" minlength="7" required>
+</div>

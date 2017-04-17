@@ -1,0 +1,51 @@
+<div>
+	<div class="uui-radio-content" ng-if="vm.availableUsers.current.logged">
+		<div class="uui-radio">
+			<input type="radio" name="adressee" id="currentUser" value="current" checked ng-model="vm.userMode" ng-change="vm.changeMode('current')"
+			/>
+			<label class="radio-label" for="currentUser">{{vm.availableUsers.current.name}} {{vm.availableUsers.current.surname}}</label>
+			<span class="uui-description-text uui-small-text">(Зарегистрированный пользователь)</span>
+		</div>
+	</div>
+
+	<div class="uui-radio-content">
+		<div class="uui-radio">
+			<input type="radio" name="adressee" id="otherUser" value="other" ng-checked="!vm.availableUsers.current.logged" ng-model="vm.userMode"
+				ng-change="vm.changeMode('other')" />
+			<label class="radio-label" for="otherUser">Другой получатель</label>
+		</div>
+		<div class="radio-content" ng-if="vm.isMode('other')">
+			<!--surname-->
+			<div class="form-group row">
+				<label for="surname" class="col-xs-12 col-sm-3 col-form-label">Фамилия</label>
+				<div class="col-xs-12 col-sm-6">
+					<input class="form-control uui-form-element" type="text" id="surname" name="surname" placeholder="Фамилия" ng-model="vm.secondUser.surname"
+						ng-class="{'error': !vm.form.surname.$valid && vm.form.$submitted}" required maxlength="100">
+				</div>
+			</div>
+			<!--name-->
+			<div class="form-group row">
+				<label for="name" class="col-xs-12 col-sm-3 col-form-label">Имя</label>
+				<div class="col-xs-12 col-sm-6">
+					<input class="form-control uui-form-element" type="text" id="name" name="name" placeholder="Имя" ng-model="vm.secondUser.name"
+						ng-class="{'error': !vm.form.name.$valid && vm.form.$submitted}" required maxlength="100">
+				</div>
+			</div>
+			<!--middle name-->
+			<div class="form-group row">
+				<label for="middlename" class="col-xs-12 col-sm-3 col-form-label">Отчество</label>
+				<div class="col-xs-12 col-sm-6">
+					<input class="form-control uui-form-element" type="text" id="middlename" name="patronimic" placeholder="Отчество" ng-model="vm.secondUser.patronimic"
+						ng-class="{'error': !vm.form.patronimic.$valid && vm.form.$submitted}" required maxlength="100">
+				</div>
+			</div>
+			<!--phone-->
+			<div class="form-group row">
+				<label for="phone" class="col-xs-12 col-sm-3 col-form-label">Контактный телефон</label>
+				<div class="col-xs-12 col-sm-6">
+					<phone ng-model="vm.secondUser.phone"></phone>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+<div class="carousel">
+    <ul class="list-inline">
+        <li class="slide" ng-repeat="item in vm.data | carouselPaginator: vm.currentPage*vm.pageSize | limitTo:vm.pageSize">
+            <book-card item="item"></book-card>
+        </li>
+    </ul>
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-4">
+            <span class="carousel-info">Книги {{(vm.page*vm.pageSize)+1}} - {{vm.checkEnd()}} из {{vm.totalCount}}</span>
+            <button class="uui-button transparent" ng-disabled="vm.page == 0" ng-click="vm.set(-1)">
+            <i class="glyphicon glyphicon-triangle-left"></i></button>
+            <button class="uui-button transparent" ng-disabled="((vm.page*vm.pageSize)) + vm.pageSize >= vm.totalCount" ng-click="vm.set(1)">
+            <i class="glyphicon glyphicon-triangle-right"></i></button>
+        </div>
+    </div>
+</div>

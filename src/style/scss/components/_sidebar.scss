@@ -1,0 +1,159 @@
+// ==============
+// Header sidebar
+// ==============
+@media screen and (max-width: 768px) {
+	aside .uui-side-bar {
+		display: block !important;
+        width: 100%;
+	}
+}
+
+
+.toggle-aside {
+	&:before {
+		content: '\f0c9';
+		font-size: 18px;
+		font-family: FontAwesome;
+		display: block;
+		animation: aside-toggler 120ms ease-out;
+		animation-fill-mode: forwards;
+	}
+	&-close {
+		&:before {
+			content: '\f00d';
+			font-size: 20px;
+			animation: aside-toggler-back 120ms ease-out;
+			animation-fill-mode: forwards;
+		}
+	}
+}
+
+@keyframes aside-toggler {
+	from {
+		transform: rotate(90deg);
+		opacity: 1;
+	}
+	to {
+		opacity: 0.5;
+		transform: rotate(0);
+	}
+}
+@keyframes aside-toggler-back {
+	from {
+		opacity: 0.5;
+		transform: rotate(-90deg);
+	}
+	to {
+		transform: rotate(0);
+		opacity: 1;
+	}
+}
+
+// Overrides
+.uui-header.sidebar-header {
+	padding: 0;
+}
+
+aside .uui-side-bar {
+	padding: 0 0 180px 0;
+	overflow-y: auto;
+	ul {
+		margin: 0;
+	}
+}
+.header-sidebar {
+	&-group {
+		background-color: $medium_gray;
+	}
+	@media screen and (min-width: 768px) {
+		transition: all 160ms ease-out;
+		.uui-side-bar {
+			overflow-y: auto;
+			display: block;
+			transition: all 160ms ease-out;
+		}
+		&.ng-leave {
+			.uui-side-bar {
+				opacity: 0.5;
+				margin-left: -$sidebar-width;
+			}
+		}
+		&.ng-enter {
+			.uui-side-bar {
+				margin-left: -$sidebar-width;
+			}
+		}
+		&.ng-enter-active {
+			.uui-side-bar {
+				margin-left: 0;
+			}
+		}
+	}
+}
+.sidebar-header.uui-header {
+	color: #EBEEF0;
+	font-size: 14px;
+	.fa {
+		font-size: 18px;
+	}
+}
+
+// ==============
+// Page sidebar
+// ==============
+.sidebar {
+	z-index: 1;
+	margin-bottom: $margin_large;
+	&:not(&-form) {
+		li {
+			&:hover:not(.sidebar-header) {
+				background: #EBEEF0;
+			}
+		}
+	}
+	ul {
+		list-style: none;
+		li {
+			a {
+				padding: 8px 12px;
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+	&-header {
+		padding: 12px;
+		background: $medium_gray;
+		color: #EBEEF0;
+		font-size: 18px;
+	}
+	padding: 0;
+	background: #F5F5F5;
+	&-form {
+		li.divider {
+			border-bottom: 3px solid #EBEEF0;
+		}
+		li {
+			padding: 8px 12px;
+			span {
+				display: block;
+				font-size: 14px;
+				font-weight: 600;
+				padding-bottom: 4px;
+			}
+			input,
+			select {
+				width: 100%;
+			}
+		}
+		ul {
+			margin-bottom: 20px;
+		}
+		.input-addon {
+			padding-top: 8px;
+			&-right {
+				padding-left: 0;
+			}
+		}
+	}
+}

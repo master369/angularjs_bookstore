@@ -1,0 +1,10 @@
+.uui-main-container {
+    padding-top: $main_container_padding_sm;
+    padding-bottom: $main_container_padding_sm;
+}
+
+@media screen and (max-width: 1024px) {
+    .uui-main-container {
+        padding-bottom: $main_container_padding_xs;
+    }
+}

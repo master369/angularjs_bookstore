@@ -1,0 +1,73 @@
+<div>
+	<!--header-->
+	<div class="row row-expand collapse-header">
+		<div class="col-xs-10">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<p class="bold text-uppercase">Заказ №<span class="dark-green" ng-bind="::vm.order.number "></span> от
+						<span class="dark-green" ng-bind="::vm.order.date | date :
+								'dd.MM.yyyy'"></span>
+					</p>
+				</div>
+				<div class="col-xs-12 col-sm-6 ">
+					<p class="bold text-uppercase">Статус заказа: <span class="dark-green" ng-class="{'raspberry': vm.isCanceled() }" ng-bind="vm.getStatusText() "></span></p>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-2 text-right">
+			<i class="fa fa-chevron-down icon-anim icon-link" ng-class="{'icon-rotate-left':!vm.item.isCollapsed}" ng-click="vm.toggleCollapse()"></i>
+		</div>
+	</div>
+
+	<div class="collapse" ng-class="{'in': vm.item.isCollapsed}">
+		<!--items table-->
+		<cart list="vm.order.cart.items"></cart>
+
+		<!--delivery info-->
+		<div class="row row-expand">
+			<div class="col-xs-12 col-sm-6">
+				<div class="well well-sm">
+					<span ng-bind="::vm.order.delivery.name"></span>
+				</div>
+				<div class="well well-sm">
+					<span>{{::vm.order.address.city}} {{vm.order.address.street}}</span>
+				</div>
+				<div class="well well-sm">
+					<span>{{::vm.order.addressee.surname}} {{::vm.order.addressee.name}} {{::vm.order.addressee.patronimic}}</span>
+				</div>
+				<div class="well well-sm">
+					<span ng-bind="::vm.order.addressee.phone | phone"></span>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<div class="row">
+					<div class="col-xs-6 col-sm-8">
+						<h6>Стоимость товаров:</h6>
+					</div>
+					<div class="col-xs-6 col-sm-4">
+						<span ng-bind="vm.order.cart.price | price"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6 col-sm-8">
+						<h6>Стоимость доставки:</h6>
+					</div>
+					<div class="col-xs-6 col-sm-4">
+						<span ng-bind="::vm.order.delivery.price | price"></span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-6 col-sm-8">
+						<h6 class="blue">Итого:</h6>
+					</div>
+					<div class="col-xs-6 col-sm-4">
+						<h6 class="blue" ng-bind="vm.order.price | price"></h6>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<button class="uui-button raspberry" ng-click="vm.cancelOrder()">Отменить заказ</button>
+		<button class="uui-button blue" ng-click="vm.formOrder()">Повторить заказ</button>
+	</div>
+</div>

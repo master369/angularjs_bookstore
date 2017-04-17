@@ -1,0 +1,105 @@
+{
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 6
+	},
+	"ecmaFeatures": {
+		"blockBindings": true
+	},
+	"plugins": [
+		"angular"
+	],
+	"globals": {
+		"angular": false,
+		"_": false,
+		"window": false,
+		// Angular Mocks
+		"inject": false,
+		// JASMINE
+		"jasmine": false,
+		"then": false,
+		"describe": false,
+		"fdescribe": false,
+		"it": false,
+		"fit": false,
+		"before": false,
+		"beforeEach": false,
+		"beforeAll": false,
+		"after": false,
+		"afterEach": false,
+		"expect": false,
+		"module": false,
+		"mock": false,
+		// Protractor
+		"element": false,
+		"by": false,
+		"browser": false,
+		"spyOn": false,
+		"require": false,
+		"protractor": false
+	},
+	"rules": {
+		"arrow-parens": [
+			"error",
+			"always"
+		],
+		"space-before-function-paren": [
+			"error",
+			{
+				"anonymous": "ignore",
+				"named": "ignore",
+				"asyncArrow": "ignore"
+			}
+		],
+		"quotes": [
+			2,
+			"single",
+			"avoid-escape"
+		],
+		"no-use-before-define": [
+			2,
+			"nofunc"
+		],
+		"no-unused-vars": [
+			2,
+			{
+				"vars": "all",
+				"args": "none"
+			}
+		],
+		"angular/ng_controller_name": [
+			2,
+			"/.*Ctrl$/"
+		],
+		"angular/ng_no_digest": 0,
+		"no-else-return": 2,
+		"no-extra-parens": 2,
+		"no-unexpected-multiline": 2,
+		"default-case": 2,
+		"dot-location": [
+			2,
+			"property"
+		],
+		"no-throw-literal": 2,
+		"radix": 2,
+		"wrap-iife": [
+			2,
+			"outside"
+		],
+		"brace-style": [
+			2,
+			"stroustrup",
+			{
+				"allowSingleLine": true
+			}
+		],
+		"comma-style": [
+			2,
+			"last"
+		]
+	}
+}

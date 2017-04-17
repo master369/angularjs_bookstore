@@ -1,0 +1,61 @@
+/* global console */
+/* eslint no-console:0 */
+(function () {
+	'use strict';
+
+	var gulp = require('gulp');
+
+	var paths = gulp.paths;
+
+	var $ = require('gulp-load-plugins')();
+
+	gulp.task('styles', function () {
+
+		var sassOptions = {
+			style: 'expanded'
+		};
+
+		// var injectFiles = gulp.src([
+		// 	paths.src + '/app/common/**/*.scss',
+		// 	paths.src + '/app/pages/**/*.scss',
+		// 	paths.src + '/app/modals/**/*.scss',
+		// 	'!' + paths.src + '/app/common/styles/components/**/*.scss',
+		// 	'!' + paths.src + '/app/index.scss',
+		// 	'!' + paths.src + '/app/vendor.scss'
+		// ], { read: false });
+
+		var injectFiles = gulp.src([
+			paths.src + '/style/scss/**/*.scss'
+		], { read: false });
+
+		var injectOptions = {
+			transform: function (filePath) {
+				filePath = filePath.replace(paths.src + '/app/', '');
+				return '@import \'' + filePath + '\';';
+			},
+			starttag: '// injector',
+			endtag: '// endinjector',
+			addRootSlash: false
+		};
+
+		var indexFilter = $.filter('index.scss');
+
+		// return gulp.src([
+		// 	paths.src + '/app/index.scss',
+		// 	paths.src + '/app/vendor.scss'
+		// ])
+		return gulp.src([
+			paths.src + '/style/scss/index.scss'
+		])
+			.pipe(indexFilter)
+			.pipe($.inject(injectFiles, injectOptions))
+			.pipe(indexFilter.restore())
+			.pipe($.sass(sassOptions))
+			.pipe($.autoprefixer())
+			.on('error', function handleError(err) {
+				console.error(err.toString());
+				this.emit('end');
+			})
+			.pipe(gulp.dest(paths.tmp + '/serve/app/'));
+	});
+} ());

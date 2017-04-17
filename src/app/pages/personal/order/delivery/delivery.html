@@ -1,0 +1,83 @@
+﻿<div class="row">
+	<form class="col-xs-12" name="deliveryForm" id="deliveryForm" novalidate ng-submit="vm.submit()">
+		<!--pickup-->
+		<div class="uui-radio-content">
+			<div class="radio-header row">
+				<div class="col-xs-6">
+					<div class="uui-radio large">
+						<input type="radio" name="deliveryModePickup" id="deliveryModePickup" checked value="{{vm.ORDER_DELIVERY_MODE['PICKUP']}}"
+							ng-model="vm.deliveryMode" ng-click="vm.deliverModeChanged()" />
+						<label class="radio-label" for="deliveryModePickup" ng-bind="vm.deliveryModes[0].name"></label>
+					</div>
+				</div>
+				<div class="col-xs-6 text-right">
+					<span ng-bing="::vm.deliveryModes[0].price | price"></span>
+				</div>
+			</div>
+			<div class="radio-content" ng-if="vm.isMode('PICKUP')">
+				<div class="row">
+					<!--city-->
+					<div class="col-xs-12 col-sm-6">
+						<div class="form-group row">
+							<label for="city" class="col-xs-12 col-md-6 col-form-label">Город/Населенный пункт:</label>
+							<drop-down class="col-xs-12 col-md-6" name="city" list="vm.cities" ng-model="vm.address.city" ng-change="vm.updateLocations"
+								placeholder="Выберите город" property="name" required></drop-down>
+						</div>
+					</div>
+					<!--location-->
+					<div class="col-xs-12 col-sm-6" ng-if="vm.address.city">
+						<div class="form-group row">
+							<label for="pointorder" class="col-xs-12 col-md-6 col-form-label">Пункт выдачи заказов:</label>
+							<drop-down class="col-xs-12 col-md-6" name="location" list="vm.locations" ng-model="vm.address.location" property="address"
+								placeholder="Пункт самовывоза" required></drop-down>
+						</div>
+					</div>
+				</div>
+
+				<p class="uui-description-text">Выберите город для определения в нем пунктов самовывоза</p>
+
+				<span class="bold">Получатель:</span>
+				<user-select user="vm.deliveryUser" user-mode="vm.userMode" second-user="vm.secondUser"></user-select>
+			</div>
+		</div>
+
+		<!--courier-->
+		<div class="uui-radio-content">
+			<div class="radio-header row">
+				<div class="col-xs-6">
+					<div class="uui-radio large">
+						<input type="radio" name="deliveryModeCourier" id="deliveryModeCourier" checked value="{{vm.ORDER_DELIVERY_MODE['COURIER']}}"
+							ng-model="vm.deliveryMode" ng-click="vm.deliverModeChanged()" />
+						<label class="radio-label" for="deliveryModeCourier" ng-bind="vm.deliveryModes[1].name"></label>
+					</div>
+				</div>
+				<div class="col-xs-6 text-right">
+					<span ng-bing="::vm.deliveryModes[1].price | price"></span>
+				</div>
+			</div>
+		</div>
+
+		<!--post-->
+		<div class="uui-radio-content">
+			<div class="radio-header row">
+				<div class="col-xs-6">
+					<div class="uui-radio large">
+						<input type="radio" name="deliveryModePost" id="deliveryModePost" checked value="{{vm.ORDER_DELIVERY_MODE['POST']}}" ng-model="vm.deliveryMode"
+							ng-click="vm.deliverModeChanged()" />
+						<label class="radio-label" for="deliveryModePost" ng-bind="vm.deliveryModes[2].name"></label>
+					</div>
+				</div>
+				<div class="col-xs-6 text-right">
+					<span ng-bing="::vm.deliveryModes[2].price | price"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="row row-expand">
+			<div class="col-xs-12">
+				<button type="button" class="uui-button raspberry" ng-click="vm.prevStep()"><i class="fa fa-chevron-left"></i> Назад</button>
+				<button type="submit" class="uui-button lime-green pull-right" trigger-validation="Заполните все поля">Далее <i class="fa fa-chevron-right"></i></button>
+			</div>
+		</div>
+	</form>
+</div>

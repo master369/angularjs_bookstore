@@ -1,0 +1,12 @@
+<div>
+	<a href class="collapse-switch-all pull-right" ng-click="vm.collapseAll()">Свернуть все</a>
+
+	<ul class="list-inline">
+		<li><a href ng-click="vm.resetFilter()">Все <span class="parentheses" ng-bind="vm.orders.length"></span></a></li>
+		<li><a href ng-click="vm.setFilterActive()">Активные <span class="parentheses" ng-bind="vm.getActiveCount()"></span></a></li>
+		<li><a href ng-click="vm.setFilterComplete()">Выполненные <span class="parentheses" ng-bind="vm.getCompleteCount()"></span></a></li>
+	</ul>
+
+	<h4 ng-if="vm.isEmpty()" class="text-center">У вас еще нет заказов</h4>
+	<personal-order ng-repeat="item in vm.orders | filter : vm.filterByStatus()" order="item"></personal-order>
+</div>

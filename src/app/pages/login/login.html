@@ -1,0 +1,112 @@
+<h1>Вход</h1>
+
+<form name="loginForm" id="loginForm" novalidate class="form-horizontal">
+	<div class="uui-input-group horizontal">
+		<p class="uui-radio large">
+			<input type="radio" name="authType" id="authTypeLogin" value="login" ng-model="vm.loginForm.authType" checked/>
+			<label for="authTypeLogin">Я уже зарегистрирован</label>
+		</p>
+		<p class="uui-radio large">
+			<input type="radio" name="authType" id="authTypeRegister" value="register" ng-model="vm.loginForm.authType" />
+			<label for="authTypeRegister">Регистрация</label>
+		</p>
+	</div>
+	<div class="collapse" ng-class="{'in': vm.isType('login')}">
+		<div class="form-group">
+			<div class="row">
+				<label class="col-xs-2 control-label control-required" for="loginEmail">Email</label>
+				<div class="col-md-3 col-xs-9 uui-input-group">
+					<input type="text" class="uui-form-element uui-form-element-wide" ng-class="{'error': !loginForm.loginEmail.$valid && loginForm.$submitted}"
+						id="loginEmail" name="loginEmail" ng-model="vm.loginForm.loginEmail" ng-required="vm.isType('login')">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-xs-2 control-label control-required" for="loginPass">Пароль</label>
+				<div class="col-md-3 col-xs-9 uui-input-group">
+					<input type="password" class="uui-form-element uui-form-element-wide" ng-class="{'error': !loginForm.loginPass.$valid && loginForm.$submitted}"
+						id="loginPass" name="loginPass" ng-model="vm.loginForm.loginPass" ng-required="vm.isType('login')">
+				</div>
+				<div class="col-xs-12 col-md-7 col-xs-offset-2  col-md-offset-0">
+					<a class="form-link">Я забыл пароль!</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="collapse" ng-class="{'in': vm.isType('register')}">
+		<div class="form-group">
+			<div class="row">
+				<label class="col-xs-2 control-label control-required" for="registerEmail">Email</label>
+				<div class="col-md-3 col-xs-9 uui-input-group">
+					<input type="text" class="uui-form-element uui-form-element-wide" ng-class="{'error': !loginForm.registerEmail.$valid && loginForm.$submitted}"
+						id="registerEmail" name="registerEmail" ng-model="vm.loginForm.registerEmail" ng-required="vm.isType('register')">
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				<label class="col-xs-2 control-label control-required" for="registerPass">Пароль</label>
+				<div class="col-md-3 col-xs-9 uui-input-group">
+					<input type="text" class="uui-form-element uui-form-element-wide" ng-class="{'error': !loginForm.registerPass.$valid && loginForm.$submitted}"
+						id="registerPass" name="registerPass" ng-model="vm.loginForm.registerPass" ng-required="vm.isType('register')">
+				</div>
+				<div class="col-md-7 col-xs-9 col-xs-offset-2 col-md-offset-0">
+					<p class="uui-description-text uui-small-text">Допустимые символы страчные (A-Z, a-z), цифры (0-9), спец символы !@#$%^&*()-_=:;,./?</p>
+					<p class="uui-description-text uui-small-text">Минимальная длина пароля 6 символов, максимальная 40 символов.</p>
+				</div>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<div class="row">
+				<label class="col-xs-2 control-label control-required" for="confirmPass">Подтверждение пароля</label>
+				<div class="col-md-3 col-xs-9 uui-input-group">
+					<input type="text" class="uui-form-element uui-form-element-wide" ng-class="{'error': !loginForm.confirmPass.$valid && loginForm.$submitted}"
+						name="confirmPass" id="confirmPass" ng-model="vm.loginForm.confirmPass" ng-required="vm.isType('register')">
+				</div>
+			</div>
+		</div>
+		<div class="form-group form-group-sm">
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-2">
+					<p class="uui-description-text uui-small-text">Поле, выделенное (*), являются обязательными для заполнения.</p>
+					<p class="uui-checkbox large square-skin">
+						<input type="checkbox" name="agreement" id="agreement" ng-model="vm.loginForm.agreement" />
+						<label for="agreement">Я согласен на обработку персональных данных и принимаю условия <a href="#">соглашения сторон</a></label>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<a href="#" ng-click="vm.stateGo(main)" class="uui-button medium-gray left-icon"><i class="fa fa-chevron-left"></i> Вернуться к каталогу</a>
+	<button class="uui-button lime-green pull-right" trigger-validation="Не все поля заполнены корректно" ng-click="vm.login()"
+		type="submit">Продолжить <i class="fa fa-chevron-right"></i></button>
+</form>
+
+<div class="row">
+	<div class="uui-login-panel">
+		<div class="login-panel-body">
+			<div class="login-panel-section">
+				<div class="login-separator">
+					<div class="border">
+						<span></span>
+					</div>
+					<div class="text">
+						<span>Войти через</span>
+					</div>
+					<div class="border">
+						<span></span>
+					</div>
+				</div>
+				<div class="social-icons">
+					<button class="uui-button transparent fa fa-instagram"></button>
+					<button class="uui-button transparent fa fa-facebook"></button>
+					<button class="uui-button transparent fa fa-vk"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,80 @@
+.card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    text-align: center;
+    box-shadow: 0 0 1px $dark_gray;
+    & .uui-button {
+        width: 100%;
+        font-size: 14px;
+        padding: $padding_small;
+    }
+    .card-img {
+        margin-bottom: 0;
+    }
+    & .badge-img {
+        display: block;
+        top: 80px;
+        left: 0;
+        padding: 2px 10px;
+        font-size: 12px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        background-color: rgba(163, 198, 68, 0.9);
+        border-radius: 2px;
+    }
+}
+
+.card-img {
+    max-width: 100%;
+    height: 100px;
+}
+
+.card-content {
+    margin-bottom: $margin;
+    padding: $padding_small;
+    overflow: hidden;
+}
+
+.card-cover {
+    position: relative;
+}
+
+.card-title {
+    display: inline-block;
+    padding: $padding_small;
+    text-align: center;
+    width: $card_descr_width;
+}
+
+.card-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-author {
+    display: inline-block;
+    max-width: $card_descr_width;
+    margin-bottom: $margin_small;
+}
+
+@media (min-width: $screen_md_max) {
+    .card {
+        .card-img {
+            margin-bottom: $margin;
+        }
+    }
+    .card-price {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: $screen_lg_max) {
+    .card {
+        padding: $padding_small;
+    }
+}

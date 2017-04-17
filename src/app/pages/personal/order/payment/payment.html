@@ -1,0 +1,116 @@
+<div class="row">
+	<form class="col-xs-12" name="paymentForm" id="paymentForm" novalidate>
+		<div class="uui-radio-content">
+			<div class="radio-header row">
+				<div class="col-xs-12">
+					<div class="uui-radio large">
+						<input type="radio" name="paymentType" id="paymentTypeReceiving" value="{{vm.paymentMethods['RECEIVING']}}"
+							ng-model="vm.paymentType" required/>
+						<label class="radio-label" for="paymentTypeReceiving">
+							<span>Оплата при получении</span>
+							<p class="uui-description-text">При получении вам понадобится паспорт</p>
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="radio-header row">
+				<div class="col-xs-12">
+					<div class="uui-radio large">
+						<input type="radio" name="paymentType" id="paymentTypePayment" value="{{vm.paymentMethods['PAYMENT']}}"
+							ng-model="vm.paymentType" required/>
+						<label class="radio-label" for="paymentTypePayment">
+							<span>Оплатить сейчас</span>
+							<p class="uui-description-text">Оплатить заказ с помощью карты</p>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="radio-content collapse" ng-class="{'in': vm.isPaymentType('PAYMENT')}">
+				<div class="row">
+					<div class="col-xs-11">
+						<section class="uui-info-panel-vertical dark-bg-gray">
+							<div class="info-panel-footer">
+								<div class="info-panel-section">
+									Заполните данные карты
+								</div>
+							</div>
+							<div class="info-panel-body">
+								<div class="info-panel-section">
+									<div class="row">
+										<label class="col-xs-3 col-form-label text-left" for="cardNumber1">Номер карты:</label>
+										<div class="col-xs-9 form-group">
+											<div class="row">
+												<div class="col-xs-3 uui-input-group">
+													<input validate="vm.isPaymentType('PAYMENT')" type="text" bn-number maxlength="4" minlength="4" class="uui-form-element uui-form-element-wide" ng-class="{'error': !paymentForm.cardNumber1.$valid && paymentForm.$submitted}" id="cardNumber1" name="cardNumber1" ng-model="vm.card.number.part1" required>
+												</div>
+												<div class="col-xs-3 uui-input-group">
+													<input validate="vm.isPaymentType('PAYMENT')" type="text" bn-number maxlength="4" minlength="4" class="uui-form-element uui-form-element-wide" ng-class="{'error': !paymentForm.cardNumber2.$valid && paymentForm.$submitted}" id="cardNumber2" name="cardNumber2" ng-model="vm.card.number.part2" required>
+												</div>
+												<div class="col-xs-3 uui-input-group">
+													<input validate="vm.isPaymentType('PAYMENT')" type="text" bn-number maxlength="4" minlength="4" class="uui-form-element uui-form-element-wide" ng-class="{'error': !paymentForm.cardNumber3.$valid && paymentForm.$submitted}" id="cardNumber3" name="cardNumber3" ng-model="vm.card.number.part3" required>
+												</div>
+												<div class="col-xs-3 uui-input-group">
+													<input validate="vm.isPaymentType('PAYMENT')" type="text" bn-number maxlength="4" minlength="4" class="uui-form-element uui-form-element-wide" ng-class="{'error': !paymentForm.cardNumber4.$valid && paymentForm.$submitted}" id="cardNumber4" name="cardNumber4" ng-model="vm.card.number.part4" required>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<label class="col-xs-3 col-form-label text-left" for="cardOwner">Владелец:</label>
+										<div class="col-xs-9 form-group">
+											<input type="text" validate="vm.isPaymentType('PAYMENT')" bn-latin placeholder="Как на карте" class="uui-form-element uui-form-element-wide" ng-class="{'error': !paymentForm.cardOwner.$valid && paymentForm.$submitted}" id="cardOwner" name="cardOwner" ng-model="vm.card.owner" required>
+										</div>
+									</div>
+									<div class="row">
+										<label class="col-xs-3 col-form-label text-left" for="expirationMonth">Дата окончания:</label>
+										<div class="col-xs-5 form-group">
+											<div class="row">
+												<div class="col-xs-6 uui-input-group">
+													<select validate="vm.isPaymentType('PAYMENT')" required class="selectpicker uui-form-element uui-form-element-wide" ng-class="{'error': !paymentForm.expirationMonth.$valid && paymentForm.$submitted}" name="expirationMonth" id="expirationMonth" ng-model="vm.card.expiration.month">
+														<option value="" selected disabled>Месяц</option>
+														<option value='{{$index+1}}' ng-repeat="month in vm.months track by $index">{{month}}</option>
+													</select>
+												</div>
+												<div class="col-xs-6 uui-input-group">
+													<select validate="vm.isPaymentType('PAYMENT')" required class="selectpicker uui-form-element uui-form-element-wide" ng-class="{'error': !paymentForm.expirationYear.$valid && paymentForm.$submitted}" name="expirationYear" id="expirationYear" ng-model="vm.card.expiration.year">
+														<option value="" selected disabled>Год</option>
+														<option value='{{year}}' ng-repeat="year in vm.years">{{year}}</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<label class="col-xs-3 col-form-label text-left" for="cardCVV">CVV:</label>
+										<div class="col-xs-5 form-group">
+											<input type="text" bn-number maxlength="3" minlength="3" validate="vm.isPaymentType('PAYMENT')" placeholder="CVV код" class="uui-form-element uui-form-element-wide" ng-class="{'error': !paymentForm.cardCVV.$valid && paymentForm.$submitted}"
+												id="cardCVV" name="cardCVV" ng-model="vm.card.cvv" required>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+
+					<div class="col-xs-1">
+						<i class="fa fa-cc-visa fa-3x"></i>
+						<i class="fa fa-cc-mastercard fa-3x"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row row-expand">
+			<div class="col-xs-12">
+				<button type="button" class="uui-button raspberry" ng-click="vm.prevStep()"><i class="fa fa-chevron-left"></i> Назад</button>
+				<button type="submit" class="uui-button lime-green pull-right" ng-click="vm.submit()" trigger-validation="Заполните данные карты">
+					<span ng-if="vm.isPaymentType('PAYMENT')">Оплатить <i class="fa fa-chevron-right"></i></span>
+					<span ng-if="vm.isPaymentType('RECEIVING')">Оформить заказ <i class="fa fa-chevron-right"></i></span>
+				</button>
+			</div>
+		</div>
+	</form>
+
+</div>
+

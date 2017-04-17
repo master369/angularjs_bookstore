@@ -1,0 +1,16 @@
+.uui-form-element {
+    min-width: 0;
+}
+
+.uui-input-group {
+    &.input-group-block {
+        display: block;
+    }
+}
+
+.uui-radio-content .radio-label  {
+    .uui-description-text {
+        font-weight: 400;
+        text-transform: none;
+    }
+}

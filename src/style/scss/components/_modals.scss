@@ -1,0 +1,63 @@
+.modal-button-close {
+    margin-top: 0;
+    opacity: 0.8;
+}
+
+.modal-title {
+    float: left;
+}
+
+.modal-header .close {
+    margin-top: 1px;
+}
+
+.modal-header-raspberry {
+    background: $raspberry;
+    color: $white;
+    border-bottom: solid 1px $raspberry;
+}
+
+.modal-header-lime {
+    background: $lime_green;
+    color: $white;
+    border-bottom: solid 1px $lime_green;
+}
+
+.modal-header-blue {
+    background: $blue;
+    color: $white;
+    border-bottom: solid 1px $blue;
+}
+
+.modal-content-custom {
+    border: none;
+}
+
+.modal-open {
+    overflow: initial;
+}
+
+.fa-white {
+    color: $white;
+}
+
+.modal.window-modal {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: auto;
+    top: auto;
+}
+
+.modal-backdrop.in.modal-layout {
+    opacity: 0;
+    position: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+}
+
+div.modal-content{
+    box-shadow: none;
+}

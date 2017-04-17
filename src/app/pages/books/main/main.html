@@ -1,0 +1,5 @@
+<div class="list_books" ng-repeat="catalog in vm.catalogs track by $index">
+    <h2>{{catalog.catalog.name}}</h2>
+    <carousel-custom data='catalog.books' load-page="vm.loadPage(catalog.catalog.id, page)" page="vm.catalogsPagination[catalog.catalog.id].page"
+        page-size="catalog.pageSize" total-count="{{catalog.totalCount}}"></carousel-custom>
+</div>

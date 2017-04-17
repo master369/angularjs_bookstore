@@ -1,0 +1,19 @@
+.icon-anim {
+    transition: all 0.5s ease;
+}
+
+.icon-link {
+    cursor: pointer;
+}
+
+.icon-rotate-left {
+    transform: rotate(90deg);
+}
+
+.icon-rotate-right {
+    transform: rotate(-90deg);
+}
+
+.icon-pointer{
+    cursor: pointer;
+}
